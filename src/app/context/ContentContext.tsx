@@ -370,27 +370,26 @@ export function ContentProvider({ children }: { children: ReactNode }) {
   const saveContent = async (
     newContent: SiteContent,
   ): Promise<{ success: boolean; message: string }> => {
-    setContent(newContent);
-
-    if (WRITE_TOKEN) {
-      try {
-        const writeClient = sanityClient.withConfig({ token: WRITE_TOKEN, useCdn: false });
-        await writeClient.createOrReplace({
-          _id: 'siteContent',
-          _type: 'siteContent',
-          ...newContent,
-        });
-        return { success: true, message: 'Gespeichert ✓' };
-      } catch (err) {
-        console.error('Sanity write error:', err);
-        localStorage.setItem('tobfinance_content', JSON.stringify(newContent));
-        return { success: false, message: 'CMS-Fehler – lokal gespeichert' };
-      }
+    if (!WRITE_TOKEN) {
+      return {
+        success: false,
+        message: 'Kein Schreib-Token konfiguriert – Speichern nicht möglich.',
+      };
     }
 
-    // No write token → localStorage fallback
-    localStorage.setItem('tobfinance_content', JSON.stringify(newContent));
-    return { success: true, message: 'Lokal gespeichert ✓' };
+    try {
+      const writeClient = sanityClient.withConfig({ token: WRITE_TOKEN, useCdn: false });
+      await writeClient.createOrReplace({
+        _id: 'siteContent',
+        _type: 'siteContent',
+        ...newContent,
+      });
+      setContent(newContent);
+      return { success: true, message: 'Gespeichert ✓' };
+    } catch (err) {
+      console.error('Sanity write error:', err);
+      return { success: false, message: 'Fehler beim Speichern. Bitte erneut versuchen.' };
+    }
   };
 
   return (

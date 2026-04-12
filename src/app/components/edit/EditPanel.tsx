@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { X, Save, Check, ChevronDown, ChevronRight, Plus, Trash2, Loader2 } from 'lucide-react';
+import { X, Save, Check, ChevronDown, ChevronRight, Plus, Trash2, Loader2, AlertTriangle } from 'lucide-react';
 import { useContent, SiteContent } from '@/app/context/ContentContext';
+
+const hasWriteToken = !!import.meta.env.VITE_SANITY_WRITE_TOKEN;
 
 // ─── Deep helpers ─────────────────────────────────────────────────────────────
 
@@ -438,6 +440,19 @@ export function EditPanel({ onClose }: EditPanelProps) {
 
       {/* Panel */}
       <div className="w-full max-w-2xl bg-white flex flex-col shadow-2xl h-screen">
+        {/* No-token warning */}
+        {!hasWriteToken && (
+          <div className="flex items-start gap-3 bg-amber-50 border-b border-amber-200 px-5 py-3">
+            <AlertTriangle className="size-4 text-amber-500 flex-shrink-0 mt-0.5" />
+            <p className="text-xs text-amber-800 leading-relaxed">
+              <strong>Kein Schreib-Token konfiguriert.</strong> Speichern ist deaktiviert.
+              Bitte <code className="bg-amber-100 px-1 rounded">VITE_SANITY_WRITE_TOKEN</code> in{' '}
+              <code className="bg-amber-100 px-1 rounded">.env.local</code> setzen und GitHub Secret
+              hinzufügen.
+            </p>
+          </div>
+        )}
+
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 flex-shrink-0">
           <div>
@@ -455,8 +470,9 @@ export function EditPanel({ onClose }: EditPanelProps) {
             )}
             <button
               onClick={handleSave}
-              disabled={saving}
-              className="flex items-center gap-2 px-5 py-2.5 bg-[#1e3a5f] text-white rounded-xl hover:bg-[#2c4f7c] transition-colors font-medium text-sm disabled:opacity-60"
+              disabled={saving || !hasWriteToken}
+              title={!hasWriteToken ? 'VITE_SANITY_WRITE_TOKEN fehlt' : undefined}
+              className="flex items-center gap-2 px-5 py-2.5 bg-[#1e3a5f] text-white rounded-xl hover:bg-[#2c4f7c] transition-colors font-medium text-sm disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {saving ? (
                 <Loader2 className="size-4 animate-spin" />
