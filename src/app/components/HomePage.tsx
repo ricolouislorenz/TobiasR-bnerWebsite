@@ -128,7 +128,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 onClick={() => onNavigate('about')}
                 className="inline-flex items-center justify-center px-8 py-4 bg-white text-[#1e3a5f] border-2 border-[#1e3a5f] rounded-lg hover:bg-gray-50 transition-colors font-medium text-lg"
               >
-                Mehr ber uns erfahren
+                Mehr über uns erfahren
               </button>
             </div>
           </div>
