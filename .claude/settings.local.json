@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p src/app/components/common)",
+      "Bash(cp src/app/components/figma/ImageWithFallback.tsx src/app/components/common/ImageWithFallback.tsx)",
+      "Bash(rm -rf src/app/components/figma)"
+    ]
+  }
+}

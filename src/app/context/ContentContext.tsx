@@ -80,7 +80,7 @@ export const defaultContent: SiteContent = {
     title: 'Deine finanzielle Zukunft in den besten Händen',
     subtitle: 'Versicherungen und Finanzen, die zu dir passen – individuell, transparent und mit echtem Mehrwert.',
     ctaPrimary: 'Kostenlose Beratung vereinbaren',
-    ctaSecondary: 'Mehr über uns erfahren',
+    ctaSecondary: 'Mehr über Tobias erfahren',
   },
   about: {
     title: 'Ein unabhängiger und kompetenter Makler mit 5 Jahren Erfahrung',
@@ -100,8 +100,8 @@ export const defaultContent: SiteContent = {
     author: 'Michael K., Privatkunde seit 2022',
   },
   team: {
-    sectionTitle: 'Unser Team',
-    sectionSubtitle: 'Lerne die Menschen kennen, die sich täglich für deine finanzielle Zukunft einsetzen',
+    sectionTitle: 'Meine Partner',
+    sectionSubtitle: 'Starke Firmenpartner, die Tobias Beratung sinnvoll ergänzen.',
     members: [
       {
         name: 'Tobias Rübner',
@@ -143,7 +143,7 @@ export const defaultContent: SiteContent = {
       {
         name: 'Nina Becker',
         date: 'vor 3 Wochen',
-        text: 'Sehr kompetent und immer erreichbar. Das Team beantwortet alle Fragen schnell und unkompliziert. Ich fühle mich rundum gut betreut.',
+        text: 'Sehr kompetent und immer erreichbar. Tobias beantwortet alle Fragen schnell und unkompliziert. Ich fühle mich rundum gut betreut.',
         rating: 5,
       },
     ],
@@ -153,9 +153,9 @@ export const defaultContent: SiteContent = {
     subtitle: 'Vereinbare jetzt ein kostenloses Erstgespräch und lass uns gemeinsam die beste Lösung für dich finden.',
     ctaTitle: 'Kostenloses Erstgespräch',
     ctaDescription:
-      'Buche direkt einen Termin in unserem Kalender – unkompliziert, unverbindlich und vollständig kostenlos. Wir freuen uns darauf, dich kennenzulernen.',
-    ctaButtonText: 'Termin vereinbaren',
-    contactTitle: 'Kontaktiere uns direkt',
+      'Buche direkt einen Termin in Tobias’ Kalender – unkompliziert, unverbindlich und vollständig kostenlos. Tobias freut sich darauf, dich kennenzulernen.',
+    ctaButtonText: 'Kostenlose Beratung vereinbaren',
+    contactTitle: 'Kontaktiere mich direkt',
     phone: '+49 40 123 456 789',
     email: 'info@tobfinance.de',
     address: 'Hamburg, Deutschland',

@@ -1,5 +1,5 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
-import logoImage from 'figma:asset/4133d71e65fdb3454145a94a82cfc3b370306199.png';
+import logoImage from '@/assets/logo.png';
 
 interface FooterProps {
   onScrollTo: (sectionId: string) => void;
@@ -13,9 +13,7 @@ export function Footer({ onScrollTo }: FooterProps) {
 
           {/* Company Info */}
           <div>
-            <button onClick={() => onScrollTo('hero')} className="mb-4 hover:opacity-80 transition-opacity block">
-              <img src={logoImage} alt="tobfinance – Tobias Rübner" className="h-10 w-auto" />
-            </button>
+            <img src={logoImage} alt="tobfinance – Tobias Rübner" className="mb-4 h-10 w-auto" />
             <p className="text-sm leading-relaxed text-gray-500">
               Dein unabhängiger Versicherungsmakler für optimale Absicherung und kompetente Beratung.
             </p>
@@ -26,10 +24,10 @@ export function Footer({ onScrollTo }: FooterProps) {
             <h4 className="text-[#1e3a5f] font-semibold mb-4">Navigation</h4>
             <ul className="space-y-2 text-sm">
               {[
-                { label: 'Leistungen',   id: 'leistungen'  },
-                { label: 'Über Uns',     id: 'team'        },
-                { label: 'Bewertungen',  id: 'bewertungen' },
-                { label: 'Kontakt',      id: 'kontakt'     },
+                { label: 'Über mich',    id: 'ueber-mich' },
+                { label: 'Leistungen',   id: 'leistungen' },
+                { label: 'Partner',      id: 'team'       },
+                { label: 'Kontakt',      id: 'kontakt'    },
               ].map(({ label, id }) => (
                 <li key={id}>
                   <button onClick={() => onScrollTo(id)} className="hover:text-[#1e3a5f] transition-colors">
