@@ -33,7 +33,6 @@ const SECTIONS = [
   { key: 'about',      label: 'Über uns' },
   { key: 'advisor',    label: 'Berater' },
   { key: 'testimonial',label: 'Testimonial' },
-  { key: 'team',       label: 'Team' },
   { key: 'reviews',    label: 'Bewertungen' },
   { key: 'contact',    label: 'Kontakt' },
   { key: 'private',    label: 'Leistungen – Privat' },
@@ -149,43 +148,6 @@ export function EditPanel({ onClose }: EditPanelProps) {
             <Plus className="size-3.5" /> Bullet Point hinzufügen
           </button>
         </div>
-      </div>
-    );
-  };
-
-  // ── Accordion item for a team member ─────────────────────────────────────────
-
-  const memberItem = (i: number) => {
-    const member = draft.team.members[i];
-    const key = `member-${i}`;
-    const open = !!expanded[key];
-    return (
-      <div key={i} className="border border-gray-200 rounded-xl overflow-hidden mb-3">
-        <button
-          onClick={() => setExpanded((ex) => ({ ...ex, [key]: !open }))}
-          className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
-        >
-          <span className="font-medium text-gray-800 text-sm">{member.name || '(kein Name)'}</span>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                set(['team', 'members'], draft.team.members.filter((_, j) => j !== i));
-              }}
-              className="p-1 text-red-400 hover:text-red-600 transition-colors"
-            >
-              <Trash2 className="size-4" />
-            </button>
-            {open ? <ChevronDown className="size-4 text-gray-500" /> : <ChevronRight className="size-4 text-gray-500" />}
-          </div>
-        </button>
-        {open && (
-          <div className="p-4">
-            {input('Name', ['team', 'members', i, 'name'])}
-            {input('Position / Rolle', ['team', 'members', i, 'role'])}
-            {input('Beschreibung', ['team', 'members', i, 'description'], true, 3)}
-          </div>
-        )}
       </div>
     );
   };
@@ -315,28 +277,6 @@ export function EditPanel({ onClose }: EditPanelProps) {
           <>
             {input('Zitat (ohne Anführungszeichen)', ['testimonial', 'quote'], true, 4)}
             {input('Autor', ['testimonial', 'author'])}
-          </>
-        );
-
-      case 'team':
-        return (
-          <>
-            {input('Abschnittstitel', ['team', 'sectionTitle'])}
-            {input('Untertitel', ['team', 'sectionSubtitle'])}
-            <div className="my-5 border-t border-gray-100" />
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Teammitglieder</p>
-            {draft.team.members.map((_, i) => memberItem(i))}
-            <button
-              onClick={() =>
-                set(['team', 'members'], [
-                  ...draft.team.members,
-                  { name: '', role: '', description: '' },
-                ])
-              }
-              className="flex items-center gap-2 text-sm text-[#1e3a5f] hover:text-[#2c4f7c] transition-colors"
-            >
-              <Plus className="size-4" /> Teammitglied hinzufügen
-            </button>
           </>
         );
 

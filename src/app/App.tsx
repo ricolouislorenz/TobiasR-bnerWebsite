@@ -1,4 +1,4 @@
-import { ArrowRight, Star, Phone, Mail, MapPin, Building2, Smartphone, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Star, Phone, Mail, MapPin, Building2, Smartphone, ShieldCheck, Network, Users, Handshake, Landmark } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Toaster } from '@/app/components/ui/sonner';
 import { ImageWithFallback } from '@/app/components/common/ImageWithFallback';
@@ -8,9 +8,9 @@ import { Footer } from '@/app/components/Footer';
 import { ContentProvider, useContent } from '@/app/context/ContentContext';
 import { PasswordModal } from '@/app/components/edit/PasswordModal';
 import { EditPanel } from '@/app/components/edit/EditPanel';
-import heroImage from '@/assets/about-hero-banner.png';
+import heroImage from '@/assets/about-hero-banner.jpg';
 import advisorImage from '@/assets/advisor-portrait.jpg';
-import testimonialBackground from '@/assets/testimonial-background.png';
+import testimonialBackground from '@/assets/testimonial-background.jpg';
 
 const partners = [
   {
@@ -27,6 +27,38 @@ const partners = [
     description:
       'simplr ergänzt die persönliche Beratung durch digitale Übersicht und einfache Verwaltung. So bleiben Verträge, Dokumente und wichtige Informationen jederzeit griffbereit.',
     Icon: Smartphone,
+    accent: 'from-[#f7f2ec] to-[#e8ddd6]',
+  },
+  {
+    name: 'blau direkt',
+    label: 'Technologie- und Maklerpool',
+    description:
+      'blau direkt stellt als Technologiepartner moderne Infrastruktur für Vertragsverwaltung und Datenaustausch bereit. Davon profitierst du durch schnelle und zuverlässige digitale Prozesse.',
+    Icon: Network,
+    accent: 'from-[#f8fafc] to-[#dbeafe]',
+  },
+  {
+    name: 'Maxpool',
+    label: 'Maklerpool',
+    description:
+      'Maxpool eröffnet als Maklerpool den Zugang zu einer großen Auswahl an Versicherern und Tarifen. So kann ich unabhängig die Lösung finden, die wirklich zu dir passt.',
+    Icon: Users,
+    accent: 'from-[#f7f2ec] to-[#e8ddd6]',
+  },
+  {
+    name: 'DMK Maklerkollektiv',
+    label: 'Maklerverbund',
+    description:
+      'Das DMK Maklerkollektiv steht für gebündelte Expertise und den Austausch unter unabhängigen Maklern. Davon profitierst du durch geprüfte Konzepte und stets aktuelles Fachwissen.',
+    Icon: Handshake,
+    accent: 'from-[#f8fafc] to-[#dbeafe]',
+  },
+  {
+    name: 'FR Finanzkontor',
+    label: 'Finanzpartner',
+    description:
+      'Das FR Finanzkontor ergänzt meine Beratung mit zusätzlicher Expertise rund um Finanzierungen und Vermögensthemen. So erhältst du auch bei komplexen Fragen fundierte Lösungen.',
+    Icon: Landmark,
     accent: 'from-[#f7f2ec] to-[#e8ddd6]',
   },
 ];
@@ -87,7 +119,7 @@ function CookieBanner() {
       aria-modal="true"
       aria-labelledby="cookie-banner-title"
     >
-      <div className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-white/10 bg-white shadow-2xl shadow-black/30">
+      <div className="relative w-full max-w-2xl max-h-[85svh] overflow-y-auto rounded-2xl border border-white/10 bg-white shadow-2xl shadow-black/30">
         <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#1e3a5f] via-[#8B7355] to-[#2c4f7c]" />
         <div className="p-6 sm:p-8">
           <div className="mb-5 flex items-start gap-4">
@@ -175,7 +207,7 @@ function SiteContent() {
 
       <main className="flex-1 pt-20">
         {/* ── Hero ─────────────────────────────────────────── */}
-        <section id="hero" className="relative h-screen min-h-[640px] overflow-hidden">
+        <section id="hero" className="relative h-svh min-h-[640px] overflow-hidden">
           <div className="absolute inset-0">
             <img
               src={heroImage}
@@ -189,7 +221,7 @@ function SiteContent() {
           <div className="container mx-auto px-4 relative z-10 h-full flex items-end pb-12 sm:items-center sm:pb-0">
             <div className="max-w-2xl text-left">
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[#8B7355]">
-                Unabhängige Finanz- und Versicherungsberatung
+                Freier Finanz- und Versicherungsmakler
               </p>
               <h1 className="text-4xl md:text-6xl font-bold text-[#17304f] mb-6 leading-tight">
                 {hero.title}
@@ -230,18 +262,18 @@ function SiteContent() {
         </section>
 
         {/* ── Trusted Advisor ──────────────────────────────── */}
-        <section className="relative py-32 md:py-40 overflow-hidden">
+        <section className="relative py-20 md:py-32 lg:py-40 overflow-hidden">
           <div className="absolute inset-0">
-            <img src={testimonialBackground} alt="" className="w-full h-full object-cover" />
+            <img src={testimonialBackground} alt="" loading="lazy" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-[#061a38]/20" />
           </div>
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 md:p-12">
-                <svg className="w-16 h-16 text-white/80 mx-auto mb-8" fill="currentColor" viewBox="0 0 24 24">
+              <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 md:p-12">
+                <svg className="w-12 h-12 md:w-16 md:h-16 text-white/80 mx-auto mb-6 md:mb-8" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
-                <blockquote className="text-2xl md:text-3xl font-medium text-white mb-8 leading-relaxed">
+                <blockquote className="text-xl md:text-2xl lg:text-3xl font-medium text-white mb-8 leading-relaxed">
                   "{testimonial.quote}"
                 </blockquote>
                 <div className="flex items-center justify-center gap-1 mb-4">
@@ -275,6 +307,7 @@ function SiteContent() {
                 <ImageWithFallback
                   src={advisorImage}
                   alt="Tobias Rübner – Ihr Versicherungsmakler"
+                  loading="lazy"
                   className="w-full h-[400px] md:h-[500px] object-cover object-[center_18%] rounded-lg"
                 />
               </div>
@@ -298,7 +331,7 @@ function SiteContent() {
                 Starke Firmenpartner, die meine Beratung sinnvoll ergänzen und dir moderne Lösungen für Investments und Versicherungsverwaltung ermöglichen.
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {partners.map((partner) => {
                 const PartnerIcon = partner.Icon;
 
@@ -307,10 +340,10 @@ function SiteContent() {
                   key={partner.name}
                   className="bg-white/10 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-white/15 transition-colors border border-white/20"
                 >
-                  <div className={`h-44 bg-gradient-to-br ${partner.accent} flex items-center justify-center px-8`}>
-                    <div className="flex items-center gap-4 text-[#1e3a5f]">
-                      <PartnerIcon className="size-12" />
-                      <span className="text-4xl font-bold tracking-normal">{partner.name}</span>
+                  <div className={`h-44 bg-gradient-to-br ${partner.accent} flex items-center justify-center px-6`}>
+                    <div className="flex items-center gap-3 text-[#1e3a5f]">
+                      <PartnerIcon className="size-10 flex-shrink-0" />
+                      <span className="text-2xl font-bold tracking-normal text-center">{partner.name}</span>
                     </div>
                   </div>
                   <div className="p-6">
@@ -352,14 +385,14 @@ function SiteContent() {
 
               <div className="grid md:grid-cols-3 gap-6">
                 {reviews.items.map((review, index) => (
-                  <div key={index} className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                  <div key={index} className="bg-white p-6 rounded-lg shadow-md border border-gray-200 flex flex-col">
                     <div className="flex items-center gap-1 mb-3">
                       {[...Array(review.rating)].map((_, i) => (
                         <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                       ))}
                     </div>
-                    <p className="text-gray-700 mb-4 leading-relaxed">{soloText(review.text)}</p>
-                    <div className="flex items-center gap-3">
+                    <p className="text-gray-700 mb-4 leading-relaxed flex-1">{soloText(review.text)}</p>
+                    <div className="flex items-center gap-3 mt-auto">
                       <div className="w-10 h-10 rounded-full bg-[#1e3a5f] flex items-center justify-center text-white font-semibold">
                         {review.name.split(' ').map((n) => n[0]).join('')}
                       </div>
@@ -374,7 +407,7 @@ function SiteContent() {
 
               <div className="text-center mt-8">
                 <a
-                  href="https://www.google.com/search?q=tobfinance"
+                  href="https://www.google.com/search?q=Tobias+R%C3%BCbner+Finanz-+und+Versicherungsmakler"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-[#1e3a5f] hover:text-[#2c4f7c] font-medium transition-colors"

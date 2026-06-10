@@ -78,30 +78,32 @@ export interface SiteContent {
 export const defaultContent: SiteContent = {
   hero: {
     title: 'Deine finanzielle Zukunft in den besten Händen',
-    subtitle: 'Versicherungen und Finanzen, die zu dir passen – individuell, transparent und mit echtem Mehrwert.',
+    subtitle:
+      'Jeder Mensch ist individuell – genauso wie die passende Absicherung. Deshalb begleite ich dich persönlich und digital bei allen Fragen rund um Versicherungen und Finanzen. Transparent, verständlich und immer mit dem Ziel, die beste Lösung für dich zu finden.',
     ctaPrimary: 'Kostenlose Beratung vereinbaren',
     ctaSecondary: 'Mehr über Tobias erfahren',
   },
   about: {
-    title: 'Ein unabhängiger und kompetenter Makler mit 5 Jahren Erfahrung',
+    title: 'Vertrauen, das über Verträge hinausgeht',
     description:
-      'Tobias kümmert sich um alle Anliegen im Bereich Finanzen und Versicherungen. Durch seine jahrelange Erfahrung und sein großes Netzwerk kann er auch weitere Kompetenzen übernehmen. Seine Kunden sind sehr zufrieden mit der persönlichen und professionellen Betreuung, die sie erhalten.',
+      'Damit du dich bei deinen Versicherungen und Finanzen sicher fühlen kannst, verbinde ich persönliche Beratung mit einem starken Netzwerk aus hochwertigen Partnern. Unkompliziert, in deinem Interesse und immer mit dem Ziel einer langfristigen Zusammenarbeit.',
   },
   advisor: {
-    title: 'Vertrauensvoller Berater. Ergebnisorientiert. Beziehungen zuerst.',
+    title: 'Endlich eine Beratung, die wirklich zu dir passt!',
     paragraph1:
-      'Frag jeden, der mit Tobias zusammengearbeitet hat, und er wird dir sagen, dass der Aufbau von Beziehungen seine Superkraft ist. Bekannt dafür, authentische Beziehungen zu pflegen, ist es keine Überraschung, dass der Löwenanteil seines Geschäfts auf Stammkunden und Empfehlungen aufgebaut ist.',
+      'Versicherungen und Finanzen sind Vertrauenssache. Deshalb steht für mich eine langfristige Zusammenarbeit und ein stetiger Austausch auf Augenhöhe im Vordergrund. Gemeinsam finden wir Lösungen, die wirklich zu deinem Leben, deinen Zielen und deiner Situation passen.',
     paragraph2:
-      'Er hat sich einen Namen als äußerst optimistischer Versicherungsmakler gemacht, der vor Positivität nur so sprüht – das menschliche Äquivalent eines Ausrufezeichens.',
+      'Mir ist wichtig, komplexe Themen verständlich und transparent zu erklären – ohne Fachsprache und unnötige Komplexität. Persönlich, digital und jederzeit mit dem Anspruch, dich ehrlich und individuell zu begleiten.',
   },
   testimonial: {
     quote:
-      'Tobias hat mir geholfen, endlich den Überblick über meine Finanzen zu bekommen. Seine ehrliche und transparente Beratung hat meine Erwartungen bei Weitem übertroffen. Ich fühle mich jetzt bestens abgesichert und für die Zukunft gewappnet!',
-    author: 'Michael K., Privatkunde seit 2022',
+      'Tobias ist Weltklasse. Die Beratung ist nicht nur professionell, sondern wirklich individuell auf meine Bedürfnisse zugeschnitten. Man merkt sofort, dass hier jemand mit Fachwissen und Leidenschaft am Werk ist. Besonders beeindruckt hat mich, wie viel Zeit sich genommen wurde, um alle Fragen ausführlich zu klären – ohne Druck, ohne Hektik. Egal, wann ich eine Rückfrage hatte, ich konnte mich immer darauf verlassen, eine schnelle und kompetente Antwort zu bekommen. Ein Versicherungsmakler, der echte Sicherheit gibt. Absolute Empfehlung!',
+    author: 'Nor N., Privatkunde seit 2024',
   },
   team: {
     sectionTitle: 'Meine Partner',
-    sectionSubtitle: 'Starke Firmenpartner, die Tobias Beratung sinnvoll ergänzen.',
+    sectionSubtitle:
+      'Starke Firmenpartner, die meine Beratung sinnvoll ergänzen und dir moderne Lösungen für Investments und Versicherungsverwaltung ermöglichen.',
     members: [
       {
         name: 'Tobias Rübner',
@@ -126,48 +128,49 @@ export const defaultContent: SiteContent = {
   reviews: {
     sectionTitle: 'Google Bewertungen',
     score: 5.0,
-    totalReviews: 47,
+    totalReviews: 54,
     items: [
       {
-        name: 'Lisa Hoffmann',
-        date: 'vor 2 Wochen',
-        text: 'Absolut professionelle und herzliche Beratung! Tobias nimmt sich wirklich Zeit und erklärt alles verständlich. Die digitale Verwaltung über die App ist super praktisch.',
+        name: 'Fabian F.',
+        date: 'vor 1 Jahr',
+        text: 'Ich habe mich bei Tobias sehr sehr gut aufgehoben gefühlt und er hat mir das Gefühl gegeben, bei ihm in besten Händen zu sein. Er hat alle Prozesse übernommen und ich musste mich um nichts kümmern. Insgesamt habe ich nun bessere Produkte als vorher und das zu einem geringeren Preis. Hier bleibe ich!',
         rating: 5,
       },
       {
-        name: 'Jan Schneider',
-        date: 'vor 1 Monat',
-        text: 'Beste Entscheidung, zu tobfinance zu wechseln. Endlich habe ich einen Überblick über all meine Versicherungen und spare dabei auch noch Geld. Top Service!',
-        rating: 5,
-      },
-      {
-        name: 'Nina Becker',
+        name: 'Nina B.',
         date: 'vor 3 Wochen',
-        text: 'Sehr kompetent und immer erreichbar. Tobias beantwortet alle Fragen schnell und unkompliziert. Ich fühle mich rundum gut betreut.',
+        text: 'Tobias ist super organisiert, freundlich und schafft es, komplexe Sachverhalte verständlich zu erklären. Man spürt seine Leidenschaft für seine Arbeit und seine Motivation, sich ständig weiterzuentwickeln und über den Tellerrand zu schauen! Ich fühle mich perfekt betreut und schätze vor Allem Tobias Offenheit, Transparenz und Herzlichkeit.',
+        rating: 5,
+      },
+      {
+        name: 'Anja R.',
+        date: 'vor 6 Monaten',
+        text: 'Ich hatte lange Vorurteile und Ängste, was zB Geld anlegen angeht. Tobias hat mir dahingehend die Angst genommen und erklärt verständlich und nachvollziehbar, was in meiner individuellen Lage sinnvoll ist zu tun. Was ich besonders schätze sind seine Wertevorstellungen und wie transparent er arbeitet. Man merkt, dass dahinter eine große Leidenschaft für seinen Beruf und das ganze Finanzthema steht. Absolut zu empfehlen!',
         rating: 5,
       },
     ],
   },
   contact: {
-    title: 'Bereit für deine finanzielle Zukunft?',
-    subtitle: 'Vereinbare jetzt ein kostenloses Erstgespräch und lass uns gemeinsam die beste Lösung für dich finden.',
-    ctaTitle: 'Kostenloses Erstgespräch',
+    title: 'Hebe deine Finanzen auf die nächste Stufe!',
+    subtitle:
+      'Über 250 Mandanten vertrauen bereits auf eine ehrliche und langfristige Zusammenarbeit. Lass uns gerne unverbindlich prüfen, ob ich auch für dich der richtige Ansprechpartner bin.',
+    ctaTitle: 'Kostenfreies Erstgespräch',
     ctaDescription:
-      'Buche direkt einen Termin in Tobias’ Kalender – unkompliziert, unverbindlich und vollständig kostenlos. Tobias freut sich darauf, dich kennenzulernen.',
+      'Buche direkt einen passenden Termin in meinem Kalender – unkompliziert, unverbindlich und vollständig kostenlos. Ich freue mich darauf, dich kennenzulernen!',
     ctaButtonText: 'Kostenlose Beratung vereinbaren',
-    contactTitle: 'Kontaktiere mich direkt',
-    phone: '+49 40 123 456 789',
-    email: 'info@tobfinance.de',
+    contactTitle: 'Kontaktiere mich',
+    phone: '+49 1514 1316736',
+    email: 'tr@maklerkollektiv.de',
     address: 'Hamburg, Deutschland',
-    whatsappNumber: '4940123456789',
+    whatsappNumber: '4915141316736',
     calendlyUrl: 'https://calendly.com/tobfinance',
   },
   privateServices: [
     {
       title: 'Investment',
       description:
-        'Wir entwickeln eine maßgeschneiderte Anlagestrategie, die exakt auf deine Ziele, deinen Anlagehorizont und deine Risikobereitschaft abgestimmt ist. Dabei setzen wir auf bewährte Instrumente wie ETF-Portfolios und breit diversifizierte Fonds. Keine versteckten Ausgabeaufschläge – du profitierst von vollen Renditen. Gemeinsam behalten wir deine Investments regelmäßig im Blick und passen sie bei Bedarf an deine Lebenssituation an.',
-      features: ['ETF-Portfolios', 'Fondssparpläne', 'Vermögensaufbau', 'Keine Ausgabeaufschläge'],
+        'Tobias entwickelt eine maßgeschneiderte Anlagestrategie, die exakt auf deine Ziele, deinen Anlagehorizont und deine Risikobereitschaft abgestimmt ist. Dabei setzen wir auf bewährte Instrumente wie ETF-Portfolios, Immobilien und breit diversifizierte Fonds. Keine Ausgabeaufschläge – du profitierst von vollen Renditen. Gemeinsam behalten wir deine Investments regelmäßig im Blick und passen sie bei Bedarf an deine Lebenssituation an.',
+      features: ['Private Vermögensverwaltung', 'ETF-Portfolios', 'Immobilien', 'Individueller Vermögensaufbau'],
     },
     {
       title: 'Altersvorsorge',

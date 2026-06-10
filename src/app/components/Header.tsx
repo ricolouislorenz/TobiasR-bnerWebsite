@@ -19,10 +19,11 @@ export function Header({ onScrollTo }: HeaderProps) {
   }, []);
 
   const navItems = [
-    { label: 'Über mich',  sectionId: 'ueber-mich' },
-    { label: 'Leistungen', sectionId: 'leistungen'  },
-    { label: 'Partner',    sectionId: 'team'        },
-    { label: 'Kontakt',    sectionId: 'kontakt'     },
+    { label: 'Über mich',                 sectionId: 'ueber-mich'  },
+    { label: 'Leistungen',                sectionId: 'leistungen'  },
+    { label: 'Partner',                   sectionId: 'team'        },
+    { label: 'Bewertungen & Erfahrungen', sectionId: 'bewertungen' },
+    { label: 'Kontakt',                   sectionId: 'kontakt'     },
   ];
 
   const handleNav = (sectionId: string) => {
@@ -53,7 +54,7 @@ export function Header({ onScrollTo }: HeaderProps) {
           </button>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navItems.map((item) => (
               <button
                 key={item.sectionId}
@@ -66,7 +67,7 @@ export function Header({ onScrollTo }: HeaderProps) {
           </nav>
 
           {/* CTA – Desktop */}
-          <div className="hidden md:block">
+          <div className="hidden xl:block">
             <button
               onClick={() => handleNav('kontakt')}
               className="inline-flex items-center px-6 py-3 bg-[#1e3a5f] text-white rounded-lg hover:bg-[#2c4f7c] transition-colors font-semibold"
@@ -77,7 +78,7 @@ export function Header({ onScrollTo }: HeaderProps) {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 text-gray-700"
+            className="lg:hidden p-2 text-gray-700"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Menü öffnen"
           >
@@ -87,7 +88,7 @@ export function Header({ onScrollTo }: HeaderProps) {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
+          <div className="lg:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <button

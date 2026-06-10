@@ -57,7 +57,6 @@ export function ServiceWheel() {
 
   const services = customerType === 'private' ? content.privateServices : content.businessServices;
   const segmentAngle = 360 / services.length;
-  const activeService = services[activeIndex];
 
   const fontSize = services.length > 8 ? 11 : 13;
   const lineSpacing = services.length > 8 ? 13 : 16;
@@ -82,7 +81,7 @@ export function ServiceWheel() {
                 <button
                   key={type}
                   onClick={() => handleCustomerTypeChange(type)}
-                  className={`px-8 py-3 rounded-lg font-medium transition-all ${
+                  className={`px-5 py-2.5 sm:px-8 sm:py-3 rounded-lg font-medium transition-all ${
                     customerType === type
                       ? 'bg-[#1e3a5f] text-white shadow-md'
                       : 'text-gray-600 hover:text-gray-900'
@@ -95,9 +94,9 @@ export function ServiceWheel() {
           </div>
 
           {/* Wheel + Detail panel */}
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             {/* ── Wheel ── */}
-            <div className="flex min-h-[560px] justify-center lg:sticky lg:top-28">
+            <div className="flex justify-center lg:sticky lg:top-28 lg:min-h-[560px]">
               <div className="relative w-full max-w-[560px] aspect-square rounded-2xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-4 shadow-xl shadow-[#1e3a5f]/10">
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -227,60 +226,67 @@ export function ServiceWheel() {
             </div>
 
             {/* ── Detail panel ── */}
+            {/* All panels are stacked in the same grid cell so the section keeps
+                the height of the tallest service and never jumps when switching. */}
             <div className="lg:pl-8">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`${customerType}-${activeIndex}`}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="relative overflow-hidden rounded-2xl border border-[#1e3a5f]/10 bg-white shadow-2xl shadow-[#1e3a5f]/10"
-                >
-                  {/* Headline – no icon */}
-                  <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#1e3a5f] via-[#8B7355] to-[#2c4f7c]" />
+              <div className="grid">
+                {services.map((service, index) => {
+                  const isActive = index === activeIndex;
+                  return (
+                    <div
+                      key={`${customerType}-${index}`}
+                      aria-hidden={!isActive}
+                      className={`col-start-1 row-start-1 relative overflow-hidden rounded-2xl border border-[#1e3a5f]/10 bg-white shadow-2xl shadow-[#1e3a5f]/10 transition-[opacity,transform] duration-300 ${
+                        isActive ? 'opacity-100 translate-x-0' : 'invisible opacity-0 translate-x-5 pointer-events-none'
+                      }`}
+                    >
+                      {/* Headline – no icon */}
+                      <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#1e3a5f] via-[#8B7355] to-[#2c4f7c]" />
 
-                  <div className="p-7 md:p-8">
-                    <div className="mb-6 flex items-center justify-between gap-4">
-                      <div>
-                        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#8B7355]">
-                          {customerType === 'private' ? 'Privatkunden' : 'Gewerbekunden'}
+                      <div className="p-7 md:p-8">
+                        <div className="mb-6 flex items-center justify-between gap-4">
+                          <div>
+                            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#8B7355]">
+                              {customerType === 'private' ? 'Privatkunden' : 'Gewerbekunden'}
+                            </p>
+                            <h3 className="text-3xl font-bold leading-tight text-[#1e3a5f]">
+                              {service.title}
+                            </h3>
+                          </div>
+                        </div>
+
+                        <p className="mb-7 text-base leading-relaxed text-gray-700">
+                          {soloText(service.description)}
                         </p>
-                        <h3 className="text-3xl font-bold leading-tight text-[#1e3a5f]">
-                          {activeService.title}
-                        </h3>
+
+                        <div className="rounded-xl border border-gray-200 bg-gray-50 p-5">
+                          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.12em] text-gray-500">
+                            Schwerpunkte
+                          </p>
+                          <ul className="grid gap-3 sm:grid-cols-2">
+                            {service.features.map((feature, idx) => (
+                              <li key={idx} className="flex items-start gap-3">
+                                <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#8B7355]" />
+                                <span className="text-sm font-medium leading-relaxed text-gray-800">{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <button
+                          type="button"
+                          tabIndex={isActive ? 0 : -1}
+                          onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
+                          className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#1e3a5f] px-6 py-4 font-semibold text-white shadow-lg shadow-[#1e3a5f]/20 transition-colors hover:bg-[#2c4f7c] sm:w-auto"
+                        >
+                          Kostenlose Beratung vereinbaren
+                          <ArrowRight className="size-5 shrink-0" />
+                        </button>
                       </div>
                     </div>
-
-                    <p className="mb-7 text-base leading-relaxed text-gray-700">
-                      {soloText(activeService.description)}
-                    </p>
-
-                    <div className="rounded-xl border border-gray-200 bg-gray-50 p-5">
-                      <p className="mb-4 text-sm font-semibold uppercase tracking-[0.12em] text-gray-500">
-                        Schwerpunkte
-                      </p>
-                      <ul className="grid gap-3 sm:grid-cols-2">
-                        {activeService.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-[#8B7355]" />
-                            <span className="text-sm font-medium leading-relaxed text-gray-800">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <button
-                      type="button"
-                      onClick={() => document.getElementById('kontakt')?.scrollIntoView({ behavior: 'smooth' })}
-                      className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#1e3a5f] px-6 py-4 font-semibold text-white shadow-lg shadow-[#1e3a5f]/20 transition-colors hover:bg-[#2c4f7c] sm:w-auto"
-                    >
-                      Kostenlose Beratung vereinbaren
-                      <ArrowRight className="size-5 shrink-0" />
-                    </button>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
