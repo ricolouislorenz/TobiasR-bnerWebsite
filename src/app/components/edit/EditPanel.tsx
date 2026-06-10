@@ -169,6 +169,7 @@ export function EditPanel({ onClose }: EditPanelProps) {
             <button
               onClick={(e) => {
                 e.stopPropagation();
+                if (!window.confirm(`Bewertung "${review.name || '(kein Name)'}" wirklich löschen?`)) return;
                 set(['reviews', 'items'], draft.reviews.items.filter((_, j) => j !== i));
               }}
               className="p-1 text-red-400 hover:text-red-600 transition-colors"
@@ -207,6 +208,7 @@ export function EditPanel({ onClose }: EditPanelProps) {
             <button
               onClick={(e) => {
                 e.stopPropagation();
+                if (!window.confirm(`Leistung "${svc.title || '(kein Titel)'}" wirklich löschen?`)) return;
                 set([basePath], draft[basePath].filter((_, j) => j !== i));
               }}
               className="p-1 text-red-400 hover:text-red-600 transition-colors"
